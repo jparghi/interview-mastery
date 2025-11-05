@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import SearchBar from '../components/SearchBar.jsx';
 import QuestionCard from '../components/QuestionCard.jsx';
-import questions from '../data/questions.json';
+import QuestionNavigation from '../components/QuestionNavigation.jsx';
+import questions from '../data/allQuestions.js';
 
 const PAGE_SIZE = 6;
 
@@ -24,7 +25,25 @@ export default function QuestionList() {
       }
     });
     return Array.from(set).sort();
-  }, []);
+  }, [questions]);
+
+  const groupedQuestions = useMemo(() => {
+    const map = new Map();
+    questions.forEach((item) => {
+      const topic = item.topic ?? 'General';
+      if (!map.has(topic)) {
+        map.set(topic, []);
+      }
+      map.get(topic).push(item);
+    });
+
+    return Array.from(map.entries())
+      .map(([topic, items]) => ({
+        topic,
+        questions: items.slice().sort((a, b) => a.id.localeCompare(b.id)),
+      }))
+      .sort((a, b) => a.topic.localeCompare(b.topic));
+  }, [questions]);
 
   const filteredQuestions = useMemo(() => {
     const term = normalize(searchTerm);
@@ -40,7 +59,7 @@ export default function QuestionList() {
         item.keywords?.some((keyword) => normalize(keyword).includes(term))
       );
     });
-  }, [searchTerm, selectedTopic]);
+  }, [questions, searchTerm, selectedTopic]);
 
   const totalPages = Math.max(1, Math.ceil(filteredQuestions.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);
@@ -60,72 +79,84 @@ export default function QuestionList() {
   };
 
   return (
-    <div className="space-y-6">
-      <SearchBar
-        searchTerm={searchTerm}
-        onSearchChange={(value) => {
-          setPage(1);
-          setSearchTerm(value);
-        }}
-        topics={topics}
-        selectedTopic={selectedTopic}
-        onTopicChange={(value) => {
-          setPage(1);
-          setSelectedTopic(value);
-        }}
-        interviewMode={interviewMode}
-        onInterviewModeToggle={() => setInterviewMode((value) => !value)}
-      />
+    <div className="flex flex-col gap-6 md:flex-row">
+      <aside className="md:w-80">
+        <QuestionNavigation
+          groupedQuestions={groupedQuestions}
+          selectedTopic={selectedTopic}
+          onTopicSelect={(topic) => {
+            setPage(1);
+            setSelectedTopic((current) => (current === topic ? '' : topic));
+          }}
+        />
+      </aside>
+      <div className="flex-1 space-y-6">
+        <SearchBar
+          searchTerm={searchTerm}
+          onSearchChange={(value) => {
+            setPage(1);
+            setSearchTerm(value);
+          }}
+          topics={topics}
+          selectedTopic={selectedTopic}
+          onTopicChange={(value) => {
+            setPage(1);
+            setSelectedTopic(value);
+          }}
+          interviewMode={interviewMode}
+          onInterviewModeToggle={() => setInterviewMode((value) => !value)}
+        />
 
-      <section className="grid gap-6 md:grid-cols-2">
-        {paginatedQuestions.length ? (
-          paginatedQuestions.map((item) => (
-            <QuestionCard key={item.id} question={item} interviewMode={interviewMode} />
-          ))
-        ) : (
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="col-span-full rounded-3xl border border-slate-200 bg-white/60 p-10 text-center text-slate-600 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300"
-          >
-            No questions found. Try adjusting your filters.
-          </motion.div>
-        )}
-      </section>
-
-      <footer className="flex flex-col items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white/80 p-4 text-sm shadow-md sm:flex-row dark:border-slate-800 dark:bg-slate-900/80">
-        <p className="text-slate-600 dark:text-slate-300">
-          {filteredQuestions.length > 0 ? (
-            <>
-              Showing {(currentPage - 1) * PAGE_SIZE + 1}–
-              {Math.min(currentPage * PAGE_SIZE, filteredQuestions.length)} of {filteredQuestions.length} questions
-            </>
+        <section className="grid gap-6 md:grid-cols-2">
+          {paginatedQuestions.length ? (
+            paginatedQuestions.map((item) => (
+              <QuestionCard key={item.id} question={item} interviewMode={interviewMode} />
+            ))
           ) : (
-            'No questions to display'
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="col-span-full rounded-3xl border border-slate-200 bg-white/60 p-10 text-center text-slate-600 dark:border-slate-800 dark:bg-slate-900/60 dark:text-slate-300"
+            >
+              No questions found. Try adjusting your filters.
+            </motion.div>
           )}
-        </p>
-        <div className="flex items-center gap-2">
-          <button
-            type="button"
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="rounded-full bg-slate-200/70 px-4 py-2 font-medium text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800/70 dark:text-slate-200"
-          >
-            Previous
-          </button>
-          <span className="font-semibold text-slate-700 dark:text-slate-200">
-            Page {currentPage} of {totalPages}
-          </span>
-          <button
-            type="button"
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="rounded-full bg-slate-200/70 px-4 py-2 font-medium text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800/70 dark:text-slate-200"
-          >
-            Next
-          </button>
-        </div>
-      </footer>
+        </section>
+
+        <footer className="flex flex-col items-center justify-between gap-4 rounded-3xl border border-slate-200 bg-white/80 p-4 text-sm shadow-md sm:flex-row dark:border-slate-800 dark:bg-slate-900/80">
+          <p className="text-slate-600 dark:text-slate-300">
+            {filteredQuestions.length > 0 ? (
+              <>
+                Showing {(currentPage - 1) * PAGE_SIZE + 1}–
+                {Math.min(currentPage * PAGE_SIZE, filteredQuestions.length)} of {filteredQuestions.length} questions
+              </>
+            ) : (
+              'No questions to display'
+            )}
+          </p>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+              className="rounded-full bg-slate-200/70 px-4 py-2 font-medium text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800/70 dark:text-slate-200"
+            >
+              Previous
+            </button>
+            <span className="font-semibold text-slate-700 dark:text-slate-200">
+              Page {currentPage} of {totalPages}
+            </span>
+            <button
+              type="button"
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+              className="rounded-full bg-slate-200/70 px-4 py-2 font-medium text-slate-600 transition disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800/70 dark:text-slate-200"
+            >
+              Next
+            </button>
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }

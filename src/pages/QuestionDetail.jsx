@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import QuestionCard from '../components/QuestionCard.jsx';
-import questions from '../data/questions.json';
+import questions from '../data/allQuestions.js';
 
 export default function QuestionDetail() {
   const navigate = useNavigate();
