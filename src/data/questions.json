@@ -1,0 +1,112 @@
+[
+  {
+    "id": "Q001",
+    "topic": "Core Java",
+    "difficulty": "Medium",
+    "question": "What is a ClassLoader in Java?",
+    "answer": "A ClassLoader is part of the JVM that dynamically loads Java classes into the Java Virtual Machine during runtime rather than compile time.",
+    "explanation": "ClassLoaders follow a delegation hierarchy (bootstrap, extension, application). Understanding custom class loaders is useful for frameworks and modular applications.",
+    "code": "ClassLoader loader = MyService.class.getClassLoader();\nClass<?> clazz = loader.loadClass(\"com.acme.Plugin\");",
+    "keywords": ["classloader", "jvm", "runtime"],
+    "references": [
+      {
+        "label": "Official Docs",
+        "href": "https://docs.oracle.com/javase/8/docs/api/java/lang/ClassLoader.html"
+      }
+    ]
+  },
+  {
+    "id": "Q002",
+    "topic": "OOP",
+    "difficulty": "Easy",
+    "question": "Explain the difference between abstraction and encapsulation.",
+    "answer": "Abstraction focuses on exposing essential features while hiding internal details; encapsulation is the technique of bundling data with code that manipulates it, controlling access via modifiers.",
+    "explanation": "Abstract classes or interfaces define abstraction, whereas encapsulation is implemented using access modifiers (private, protected) and getter/setter methods.",
+    "code": "public abstract class Shape {\n    public abstract double area();\n}\n\npublic class Circle extends Shape {\n    private double radius; // encapsulated\n    public Circle(double radius) { this.radius = radius; }\n    @Override public double area() { return Math.PI * radius * radius; }\n}",
+    "keywords": ["abstraction", "encapsulation", "oop"],
+    "mermaidDiagram": "classDiagram\n    class Shape {\n      +area() double\n    }\n    class Circle {\n      -radius double\n      +Circle(radius)\n      +area() double\n    }\n    Shape <|-- Circle"
+  },
+  {
+    "id": "Q003",
+    "topic": "Collections",
+    "difficulty": "Medium",
+    "question": "How does HashMap handle collisions internally?",
+    "answer": "HashMap stores entries in buckets indexed by hash. Collisions are resolved using a linked list that transforms into a balanced tree (red-black) once the bucket exceeds the TREEIFY_THRESHOLD (default 8).",
+    "explanation": "Treeification improves lookup performance from O(n) to O(log n) when many keys hash to the same bucket in Java 8 and above.",
+    "code": "Map<String, Integer> map = new HashMap<>();\nmap.put(\"key\", 1);",
+    "keywords": ["hashmap", "collision", "treeify"],
+    "references": [
+      "Effective Java, Item 9"
+    ]
+  },
+  {
+    "id": "Q004",
+    "topic": "Multithreading",
+    "difficulty": "Hard",
+    "question": "What is the difference between the synchronized keyword and ReentrantLock?",
+    "answer": "synchronized is a JVM-level construct with implicit locking and automatic release. ReentrantLock is part of java.util.concurrent, offers fairness policies, interruptible lock acquisition, tryLock, and must be released manually.",
+    "explanation": "ReentrantLock is preferable when you need timed lock attempts, lock polling, or multiple condition variables.",
+    "code": "ReentrantLock lock = new ReentrantLock(true);\nlock.lockInterruptibly();\ntry {\n    // critical section\n} finally {\n    lock.unlock();\n}",
+    "keywords": ["synchronized", "reentrantlock", "concurrency"],
+    "references": [
+      {
+        "label": "Java Concurrency in Practice",
+        "href": "https://jcip.net/"
+      }
+    ]
+  },
+  {
+    "id": "Q005",
+    "topic": "JVM Internals",
+    "difficulty": "Medium",
+    "question": "Describe the different regions of the JVM memory model.",
+    "answer": "Key runtime memory areas include the Heap, Method Area (a.k.a. metaspace), Stack, PC registers, and Native Method Stack.",
+    "explanation": "The Heap stores objects and class metadata (metaspace). Each thread has its own stack with frames for methods and local variables.",
+    "mermaidDiagram": "graph TD\n    A[Program Start] --> B[Class Loading]\n    B --> C[Heap]\n    B --> D[Metaspace]\n    B --> E[Thread Stacks]\n    E --> F[PC Register]\n    E --> G[Native Method Stack]",
+    "keywords": ["heap", "stack", "metaspace", "jvm memory"],
+    "references": [
+      {
+        "label": "Oracle JVM Spec",
+        "href": "https://docs.oracle.com/javase/specs/"
+      }
+    ]
+  },
+  {
+    "id": "Q006",
+    "topic": "Streams API",
+    "difficulty": "Medium",
+    "question": "What is the difference between intermediate and terminal operations in Java Streams?",
+    "answer": "Intermediate operations return a new stream and are lazy (map, filter), while terminal operations produce a result or side effect (collect, forEach) and trigger evaluation of the pipeline.",
+    "explanation": "Use collect or reduce to materialize results. Without a terminal operation, intermediate operations never execute.",
+    "code": "List<String> names = List.of(\"Ada\", \"Brian\", \"Carla\");\nList<String> filtered = names.stream()\n    .filter(name -> name.startsWith(\"A\"))\n    .map(String::toUpperCase)\n    .toList();",
+    "keywords": ["streams", "intermediate", "terminal"]
+  },
+  {
+    "id": "Q007",
+    "topic": "Spring",
+    "difficulty": "Medium",
+    "question": "How does dependency injection work in the Spring Framework?",
+    "answer": "Spring manages object creation and wiring via the ApplicationContext. Beans declare dependencies through constructors, setters, or field injection, and Spring resolves them using configuration metadata or annotations.",
+    "explanation": "Constructor injection is preferred for mandatory dependencies. The container assembles the object graph before handing beans to consumers.",
+    "code": "@Configuration\nclass AppConfig {\n    @Bean\n    OrderService orderService(PaymentGateway gateway) {\n        return new OrderService(gateway);\n    }\n}",
+    "keywords": ["spring", "dependency injection", "beans"],
+    "references": [
+      {
+        "label": "Spring Docs",
+        "href": "https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans"
+      }
+    ]
+  },
+  {
+    "id": "Q008",
+    "topic": "Best Practices",
+    "difficulty": "Medium",
+    "question": "What strategies improve Java application startup performance?",
+    "answer": "Strategies include class data sharing (CDS), avoiding eager initialization, trimming the classpath, leveraging GraalVM native images, and using lazy bean initialization in frameworks.",
+    "explanation": "Profile startup with tools like JFR or Async Profiler, and use JVM flags such as -Xshare:on to enable class data sharing.",
+    "keywords": ["startup", "performance", "graalvm"],
+    "references": [
+      "Java Performance Tuning Guide"
+    ]
+  }
+]
