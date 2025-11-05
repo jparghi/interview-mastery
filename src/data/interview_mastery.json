@@ -1,0 +1,661 @@
+{
+  "category": "Java Core",
+  "questions": [
+    {
+      "id": "JAVA_001",
+      "question": "Q. Can you describe a leadership challenge you faced and how you handled it?",
+      "answer": " Answer: At ESDC, a junior developer struggled to deliver on time. I paired them with a senior member, set up regular code review sessions, and provided hands-on guidance. The developer’s confidence improved, and delivery timelines stabilized.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_002",
+      "question": "Q. How do you ensure team productivity in Agile environments?",
+      "answer": " Answer: I lead daily stand-ups, ensure clear sprint goals, and remove blockers promptly. At CRA, I also facilitated retrospectives to gather team feedback and improve processes continuously.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_003",
+      "question": "Q How do you approach mentoring junior developers?",
+      "answer": " Answer: I conduct code review sessions, knowledge-sharing workshops, and provide one-on-one guidance. At Amdocs, I mentored junior developers on microservice design patterns, best practices, and troubleshooting techniques.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_004",
+      "question": "Q. How have you balanced technical leadership with hands-on contributions?",
+      "answer": " Answer: At CRA, I balanced team leadership by handling architectural decisions, sprint planning, and mentoring while remaining hands-on in solving critical technical challenges, conducting code reviews, and contributing to core modules.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_005",
+      "question": "Q. How do you ensure code quality in your projects?",
+      "answer": " Answer: I enforce coding standards, conduct regular peer reviews, integrate SonarQube for static code analysis, and ensure high unit test coverage. CI pipelines fail on code quality violations, ensuring robust, maintainable code.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_006",
+      "question": "Q. How have you managed technical debt in projects?",
+      "answer": " Answer: At CRA, I scheduled regular refactoring sprints, prioritized code cleanup alongside feature development, and ensured CI pipelines included code quality checks, keeping technical debt under control. Q. Describe a situation where you improved deployment reliability. Answer: At NCR, we experienced failed deployments due to inconsistent environments. I standardized CI/CD pipelines, used Kubernetes ConfigMaps for environment configs, and implemented canary deployments, improving reliability by 90%.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_007",
+      "question": "Q. How do you prioritize features and technical tasks as a lead?",
+      "answer": " Answer: I collaborate with stakeholders to understand business priorities, assess technical dependencies, and balance feature delivery with addressing tech debt, security patches, and system optimizations.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_008",
+      "question": "Q. How have you handled cross-team collaboration challenges?",
+      "answer": " Answer: At CRA, coordination with banking API teams was crucial. I established regular sync meetings, defined clear API contracts, and used Confluence to document dependencies, ensuring smooth cross-team delivery.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_009",
+      "question": "Q. How would you design and implement this system using Spring Boot and your preferred cloud provider (AWS or GCP)?",
+      "answer": " Imagine a client wants to build a scalable, secure full-stack application that runs on the cloud. They need: •\tFast time-to-market •\tSupport for high traffic •\tModular codebase •\tModern DevOps practices “To design a scalable, secure full-stack cloud-native solution, I’d choose Spring Boot for the backend and React for the frontend. On the backend, I’d develop RESTful microservices — for instance, an OrderingService that interacts with an inventory service. Each service would be independently deployed and follow clean architecture principles. I’d use Spring Security with JWT to secure endpoints and Hibernate for ORM. For containerization, I’d package each service using Docker, and deploy using Kubernetes on AWS EKS for orchestration. This allows us to auto-scale, roll out updates with zero downtime, and isolate services cleanly. The frontend would be hosted separately (e.g., on S3 with CloudFront) and would consume backend APIs over secure endpoints. I’d implement a CI/CD pipeline using Jenkins or GitHub Actions, integrating with AWS services. Each commit triggers a pipeline that runs tests, builds Docker images, pushes to ECR, and deploys to Kubernetes using GitOps practices. For observability, I’d integrate Prometheus and Grafana, along with CloudWatch for logs. This setup ensures fast time-to-market, high availability, and the ability to support high traffic while enforcing cloud best practices and clean DevOps workflows.” Design Patterns.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_010",
+      "question": "Q - Define some of the designed patterns used?",
+      "answer": " 🚀 Quick Rundown: Java Design Patterns Simplified 1. Creational Patterns – How Objects Are Created 2. Structural Patterns – How Classes/Objects Are Combined 3. Behavioral Patterns – How Objects Communicate ✅ Quick Java Use Cases: •\tSingleton: Logging, DB connections. •\tFactory: Spring’s BeanFactory (creating beans at runtime). •\tBuilder: Constructing complex DTOs. •\tAdapter: Integrating third-party APIs. •\tDecorator: Adding extra behaviors (e.g., logging, security) to existing services. •\tObserver: Event handling, Kafka consumers. •\tStrategy: Different authentication mechanisms (OAuth, LDAP, SSO). •\tTemplate: Abstract classes in Spring Security filters. •\tProxy: AOP (Aspect-Oriented Programming) in Spring. 🔑 Super Quick Memory Trick: C = Creation → Singleton, Factory, Builder S = Structure → Adapter, Decorator, Proxy B = Behavior → Observer, Strategy, Template, Command",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_011",
+      "question": "Q. What are the design patterns used in spring?",
+      "answer": " Perfect! Here’s a quick Spring Design Patterns Cheat Sheet—organized by pattern type and showing exactly how Spring uses each. This should help lock it into memory: 🌱 Spring Design Patterns Cheat Sheet 🔧 Creational Patterns •\tSingleton Spring beans are Singleton by default. Only one instance per container. Example: @Service, @Component beans. •\tPrototype Each injection gets a new instance. Example: @Scope(\"prototype\"). •\tBuilder Builds complex objects step-by-step. Example: RestTemplateBuilder, ResponseEntity.ok().body(data). •\tFactory Method Spring container creates beans via factory methods. Example: @Bean public MyService myService() { return new MyService(); } 🧱 Structural Patterns •\tProxy Used in AOP—Spring wraps beans with proxies to apply logic like transactions or logging. Example: @Transactional, @Cacheable. •\tDecorator Adds behavior dynamically—seen in filter chains. Example: Spring Security filters. •\tAdapter Allows incompatible interfaces to work together. Example: HandlerAdapter in Spring MVC. 🧠 Behavioral Patterns •\tTemplate Method Defines a skeleton of an operation and lets subclasses fill in steps. Example: JdbcTemplate, RestTemplate. •\tObserver Publishes and listens to events. Example: ApplicationEventPublisher, @EventListener. •\tStrategy Chooses behavior at runtime. Example: AuthenticationProvider, ViewResolver. •\tCommand Encapsulates a request as an object. Example: Web controllers mapping URLs to handler methods. •\tChain of Responsibility Passes a request through a chain until one handles it. Example: Servlet Filter chains, Spring Security filter chain. ⚡ Resilience Patterns (Spring Cloud) •\tCircuit Breaker Stops repeated failures by breaking the circuit temporarily. Example: @CircuitBreaker with Resilience4j. •\tRetry Automatically retries failed operations. Example: @Retryable. •\tFallback Provides a backup method on failure. Example: @Recover or fallback methods in Resilience4j. Java/J2ee ✅ Core Java Questions",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_012",
+      "question": "Q - What are the core pillars of OOPS (Java)?",
+      "answer": " A - There are 4 core pillars of OOPS. Encapsulation - hiding the internal state of an object and exposing the behaviour through public methods. Example - there is a BankAccount - balance, account number. You need to use the deposit() or withdraw() public method to manipulate the values for balance. Abstraction - exposing only the essential information while hiding the internal implementation. Example - payment gateway integration. Call processPayment(double amount {}. You don’t need to know how it is implemented. Polymorphism - it allows objects of different classes to be treated as object of one superclass. You can achieve this via overriding(runtime) and overloading(compile time). Example - notification server. Email notification, SMS notification. Inheritance - it allows the properties and methods of another class. It promotes code reuse. - ecommerce application has a parent class called user. There are different types of users such as admin, customer. These child classes can use the user object’s properties to define name,email.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_013",
+      "question": "Q - What is thread safe ?",
+      "answer": " When the same object is referenced multiple times, thread safety is not guaranteed.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_014",
+      "question": "Q - What is the synchronized keyword in java?",
+      "answer": " In Java, the synchronized keyword is used to provide thread safety and ensure that multiple threads do not interfere with each other when accessing shared resources or critical sections of code. When a method or a block of code is marked as synchronized, only one thread at a time can execute that method or block. The way you can prevent multiple threads from executing the same method is by using the synchronized keyword on the method. If a method is marked synchronized, a different thread gets access to the method only when there is no other thread currently executing the method. Let’s mark the method as synchronized: synchronized int setandGetSum(int a1, int a2, int a3) { cell1 = a1; sleepForSomeTime(); cell2 = a2; sleepForSomeTime(); cell3 = a3; sleepForSomeTime(); return cell1 + cell2 + cell3; } Can \\Q - what is the difference between final, finally , finalize() ? Final - final is a keyword used in Java to restrict the modification of a variable, method, or class. Finally - finally is a block used in Java to ensure that a section of code is always executed, even if an exception is thrown. Finalize - finalize is a method in Java used to perform cleanup processing on an object before it is garbage collected.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_015",
+      "question": "Q. What are the main features of Java?",
+      "answer": " •\tObject-Oriented •\tPlatform Independent (WORA - Write Once, Run Anywhere) •\tRobust & Secure •\tMultithreaded •\tAutomatic Garbage Collection •\tJVM (Java Virtual Machine) based 2. Difference between JDK, JRE, and JVM? 3. What is the difference between == and .equals() in Java? •\t== compares reference (memory location). •\t.equals() compares values/content (can be overridden). String s1 = new String(\"Java\"); String s2 = new String(\"Java\"); System.out.println(s1 == s2); // false (different references) System.out.println(s1.equals(s2)); // true (same value) 4. What is HashMap, and how does it work internally? •\tStores key-value pairs. •\tUses hashing. •\tInternally has an array of buckets. •\thashCode() determines bucket, equals() checks key equality. •\tAfter Java 8, if collisions increase, bucket is converted to Red-Black Tree.[TBD] 6. Difference between Abstract class and Interface. Methods: Abstract Class: Can include both concrete (implemented) and abstract (unimplemented) methods. Interface: Before Java 8, only abstract methods allowed. Java 8+ adds default and static methods. Multiple Inheritance: Abstract Class: Does not support multiple inheritance. Interface: Supports multiple inheritance (a class can implement multiple interfaces). Constructor: Abstract Class: Can have constructors. Interface: Cannot have constructors. Access Modifiers: Abstract Class: Can use any access modifier (public, protected, private). Interface: Pre-Java 9, all methods are implicitly public and abstract. 7. What is multithreading? Explain synchronized keyword. •\tMultithreading: Running multiple threads concurrently. •\tsynchronized: Ensures only one thread accesses critical section at a time. synchronized void increment() { count++; } 8. What is the difference between ArrayList and LinkedList? Underlying Data Structure: ArrayList: Uses a dynamic array. LinkedList: Uses a doubly linked list. Access Time (get/indexing): ArrayList: Fast O(1) time for access by index. LinkedList: Slower O(n) time for access by index (traversal needed). Insertion/Deletion (middle of list): ArrayList: Slower (O(n)) due to shifting elements. LinkedList: Faster (O(1)) if node reference is known. Insertion/Deletion (start/end): ArrayList: Inserting at the end is fast (amortized O(1)); inserting at the beginning is slow (O(n)). LinkedList: Fast insert/delete at both start and end (O(1)). Memory Usage: ArrayList: Uses less memory per element (only stores data). LinkedList: Uses more memory (stores data + two pointers for next and previous). Iteration Performance: ArrayList: Faster iteration due to contiguous memory and better cache locality. LinkedList: Slower iteration due to scattered memory locations. Thread Safety: Both: Not synchronized by default (need external synchronization for thread safety). ✅ Advanced Java Questions 9. What is the difference between HashMap and ConcurrentHashMap? Thread Safety: HashMap: Not thread-safe. ConcurrentHashMap: Thread-safe (designed for concurrent access). Null Keys/Values: HashMap: Allows one null key and multiple null values. ConcurrentHashMap: Does not allow null keys or null values. Performance (Single Thread): HashMap: Faster in single-threaded scenarios. ConcurrentHashMap: Slightly slower due to synchronization overhead. Synchronization Mechanism: HashMap: Must be externally synchronized if used in multi-threaded code (e.g., via Collections.synchronizedMap()). ConcurrentHashMap: Internally handles synchronization using segment locking or bucket-level locking. Fail-Safe Behavior: HashMap: Iterator is fail-fast – throws ConcurrentModificationException if modified during iteration. ConcurrentHashMap: Iterator is fail-safe – does not throw exceptions if modified during iteration (but may not reflect latest changes). Use Case: HashMap: Suitable for single-threaded or externally synchronized environments. ConcurrentHashMap: Ideal for multi-threaded, high-concurrency scenarios. Granularity of Locking: HashMap: No internal locking. ConcurrentHashMap: Fine-grained locking (at bucket or segment level) for better concurrency. 10. Explain the concept of immutability in Java. •\tImmutable class: State cannot be changed after creation. •\tExample: String class Steps to create: 1.\tMark class as final. 2.\tPrivate fields. 3.\tNo setters, only getters. 4.\tConstructor sets values. 5.\tReturn new objects on modification. 11. What is Java Stream API? •\tIntroduced in Java 8. •\tAllows functional-style processing of collections. List<Integer> numbers = Arrays.asList(1, 2, 3, 4); numbers.stream() .filter(n -> n % 2 == 0) .map(n -> n * 2) .forEach(System.out::println); 12. Explain CompletableFuture & its usage. •\tAsynchronous computation. •\tCan be chained using .thenApply(), .thenCompose(), .thenCombine(). CompletableFuture.supplyAsync(() -> \"Hello\") .thenApply(str -> str + \" World\") .thenAccept(System.out::println); 13. Difference between Checked and Unchecked exceptions “An exception is an abnormal condition or error that occurs during program execution, which can be caught and handled to maintain application stability.” ✅ Difference Between Checked and Unchecked Exceptions (senior-level one-liner): “Checked exceptions represent recoverable conditions that must be handled or declared at compile time (e.g., IOException), whereas unchecked exceptions signal programming errors or unexpected failures and occur at runtime (e.g., NullPointerException).” 🔍 Examples: ✔️ Checked Exception: try { FileReader file = new FileReader(\"data.txt\"); // FileNotFoundException } catch (FileNotFoundException e) { e.printStackTrace(); } Why it’s checked: “This is a recoverable scenario — the file might not be present, so the compiler forces you to handle it.” ✔️ Unchecked Exception: String str = null; System.out.println(str.length()); // NullPointerException Why it’s unchecked: “This is a programming bug — something we should avoid via better logic or validation, not try/catch blocks.” Let me know if you’d like it formatted as a table or cheat sheet! 15. Explain Garbage Collection in Java. •\tAutomatic memory management. •\tGenerational GC (Young, Old, PermGen/Metaspace). •\tJVM triggers GC, can be fine-tuned with JVM options. 16. How does JVM load classes? 1.\tBootstrap ClassLoader 2.\tExtension ClassLoader 3.\tApplication ClassLoader Great question! Let me explain it quickly and clearly: 🔥 How JVM Loads Classes Loader: Bootstrap ClassLoader\n\n → What it loads: Core Java classes\n\n → Source: rt.jar or core Java libraries Loader: Extension (Platform) ClassLoader\n\n → What it loads: JDK extension classes\n\n → Source: lib/ext directory Loader: Application (System) ClassLoader\n\n → What it loads: Application-specific classes\n\n → Source: Classpath (CLASSPATH environment variable or -cp argument) 🟢 JVM Class Loading Steps: 1.\tJVM starts. 2.\tBootstrap ClassLoader loads core classes. •\tE.g., java.lang.Object, java.util.* 3.\tExtension ClassLoader loads JDK extensions. 4.\tApplication ClassLoader loads your classes. Important: JVM follows Parent Delegation Model: •\tEach class loader asks its parent first before trying to load the class itself. 🟡 Does JVM load ALL classes at once? No. JVM uses: •\tLazy Loading: JVM only loads classes when needed (when first referenced). Example: •\tYou write MyClass obj = new MyClass(); •\tAt runtime: JVM loads MyClass only when you create/use it. 📝 Summary: 1.\tJVM starts. 2.\tClass loaders load classes on demand. 3.\tParent-first approach (Bootstrap → Extension → Application). 4.\tOnly necessary classes are loaded, not everything upfront. ✅ Java Collection Questions 🧠 Java Collections – Must-Know Topics ✅ Core Interfaces •\tList – Ordered, allows duplicates (ArrayList, LinkedList) •\tSet – No duplicates (HashSet, LinkedHashSet, TreeSet) •\tMap – Key-value pairs (HashMap, TreeMap, LinkedHashMap) •\tQueue – FIFO structure (LinkedList, PriorityQueue) •\tDeque – Double-ended queue ✅ Most Common Implementations one-liner descriptions and examples for each Java Collection interface and its common implementations: Interface: List\n\n → Description: An ordered collection that allows duplicates and positional access.\n\n → Common Implementations:\n\n     • ArrayList – backed by a dynamic array; fast random access.\n\n     • LinkedList – backed by a doubly linked list; efficient insertions/deletions.\n\n → Example: List<String> names = new ArrayList<>(); names.add(\"Alice\"); Interface: Set\n\n → Description: A collection that does not allow duplicate elements.\n\n → Common Implementations:\n\n     • HashSet – unordered, backed by a hash table.\n\n     • LinkedHashSet – maintains insertion order.\n\n     • TreeSet – sorted set based on a Red-Black tree.\n\n → Example: Set<Integer> ids = new HashSet<>(); ids.add(101); ids.add(102); Interface: Map\n\n → Description: A key-value pair collection; keys are unique.\n\n → Common Implementations:\n\n     • HashMap – unordered, allows one null key.\n\n     • LinkedHashMap – maintains insertion order.\n\n     • TreeMap – sorted by keys.\n\n     • ConcurrentHashMap – thread-safe map with high concurrency.\n\n → Example: Map<String, Integer> scores = new HashMap<>(); scores.put(\"Math\", 90); Interface: Queue\n\n → Description: A collection designed for holding elements prior to processing (FIFO).\n\n → Common Implementations:\n\n     • LinkedList – acts as both a list and a queue.\n\n     • PriorityQueue – orders elements according to priority.\n\n → Example: Queue<String> tasks = new LinkedList<>(); tasks.add(\"Email client\"); Interface: Deque\n\n → Description: Double-ended queue supporting insertions/removals at both ends.\n\n → Common Implementations:\n\n     • ArrayDeque – resizable array, better than Stack or LinkedList.\n\n     • LinkedList – also implements Deque for flexible operations.\n\n → Example: Deque<String> logs = new ArrayDeque<>(); logs.addFirst(\"Start\"); logs.addLast(\"End\"); 1. What’s the difference between ArrayList and LinkedList? •\tArrayList: Backed by a dynamic array, fast random access, slow inserts/removals. •\tLinkedList: Doubly linked list, fast inserts/removals, slow access. 2. HashSet vs TreeSet vs LinkedHashSet? •\tHashSet: No order, fastest performance. •\tLinkedHashSet: Maintains insertion order. •\tTreeSet: Sorted order (uses TreeMap internally), slower than others. 3. HashMap vs TreeMap vs LinkedHashMap? •\tHashMap: No order, O(1) operations. •\tLinkedHashMap: Maintains insertion order. •\tTreeMap: Sorted by key (uses Red-Black Tree), O(log n) operations. 4. What is the initial capacity and load factor in HashMap? •\tDefault initial capacity = 16, default load factor = 0.75 •\tAfter 75% full, capacity doubles (resize and rehash) 5. What is the difference between fail-fast and fail-safe iterators? •\tFail-fast: Throws ConcurrentModificationException if modified during iteration Example: ArrayList, HashMap •\tFail-safe: Iterates over a copy, no exception Example: ConcurrentHashMap, CopyOnWriteArrayList 6. How does HashMap work internally? •\tUses an array of buckets •\tEach bucket stores entries as a linked list or tree (if too many items) •\tKeys are hashed → index is calculated → entry is stored/retrieved 7. What happens on key collision in HashMap? •\tKeys with the same hash code go into the same bucket. •\tEntries are compared using equals(). •\tFrom Java 8: if too many collisions (bucket > 8 entries), uses a balanced tree (Red-Black Tree). 8. What is the difference between HashMap and ConcurrentHashMap? •\tHashMap is not thread-safe. •\tConcurrentHashMap is thread-safe, uses bucket-level locking (segments or synchronized blocks) for better performance. 9. How to sort a Map by keys or values? map.entrySet().stream() .sorted(Map.Entry.comparingByKey()) .forEach(System.out::println); 10. Why is Set not allowed to have duplicates? Because it uses equals() and hashCode() to compare and filter unique entries. Spring Boot & Microservices",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_016",
+      "question": "Q “How would you design a scalable and fault-tolerant microservices architecture for a new application?”",
+      "answer": " 1. Understand the Requirements Ask clarifying questions: Functional needs? (e.g., user profiles, payments, notifications) Expected load? (users/day, peak QPS) SLAs/uptime goals? Read/write ratio? Real-time or batch? 2. High-Level Architecture API Gateway: Entry point; handles routing, rate-limiting, auth. Service Layer: Independent microservices for each domain (e.g., UserService, PaymentService). Database per Service: Follows the Database per service principle. Message Queue: For async communication (Kafka, RabbitMQ). Service Discovery: Dynamically locates services (e.g., Eureka, Consul). Load Balancer: For distributing requests (e.g., NGINX, AWS ALB). Configuration Management: Centralized config (e.g., Spring Cloud Config, Consul KV). 3. Scalability Stateless services: Easily horizontally scalable. Auto-scaling: Use Kubernetes (HPA) or cloud-native solutions. Read replicas: Scale DB reads. Caching: Redis or Memcached for frequently accessed data. CDN: For static content delivery. 4. Fault Tolerance Circuit breakers: Hystrix, Resilience4j to prevent cascading failures. Retries with exponential backoff. Bulkheads: Isolate resources per service. Timeouts: Ensure services don’t hang forever. Failover/Redundancy: Deploy in multiple availability zones or regions. 5. Observability Logs: Centralized logging with ELK or Loki. Metrics: Prometheus + Grafana. Tracing: OpenTelemetry or Jaeger for distributed tracing. 6. DevOps & Deployment CI/CD: GitHub Actions, Jenkins, GitLab CI. Containerization: Docker. Orchestration: Kubernetes (K8s). Blue-Green or Canary deployments for safe rollouts. 7. Security AuthN/AuthZ: OAuth2/JWT, Keycloak. Rate limiting & throttling at API Gateway. TLS everywhere. Secret management: Vault, AWS Secrets Manager. 8. Data Considerations Eventual consistency via message queues. Idempotency (performing same operation multiple times has same impact): Especially for POSTs and retries. Saga pattern: For distributed transactions.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_017",
+      "question": "Q: How does Spring Boot simplify application development? How do you usually set up a project?",
+      "answer": " Spring Boot helps simplify Java application development by providing built-in tools and auto-configuration features that eliminate the need for boilerplate setup. It comes with a scaffolding framework, so you can quickly define REST controllers, services, repositories, and configure databases without writing a lot of XML or manual bean configurations. I usually set up a Spring Boot project using Spring Initializr, where I select dependencies like Spring Web, Spring Data JPA, Spring Security, etc. Then I organize my code into layers—controller, service, and repository—and use annotations like @RestController, @Service, and @Repository to wire everything together. Configuration is done through the application.properties or application.yml file, making it easy to manage settings like database connections, port numbers, or logging levels.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_018",
+      "question": "Q. How do you decide when to split functionality into a new service versus keeping it in the same service?",
+      "answer": " “When deciding whether to split functionality into separate microservices or keep it in the same service, I consider a few key factors. First is the business workflow. If the steps are tightly coupled and need to happen in a specific sequence, I may keep them in the same service to reduce communication overhead and simplify coordination. But if parts of the workflow can be logically and functionally separated, I look for opportunities to decouple them. For example, I might break down the frontend, backend APIs, and internal layers like controllers, services, and data access into separate microservices if they align with distinct business capabilities. Second is complexity. If keeping everything in one service makes the architecture too complex or hard to scale, I consider splitting it. I also watch out for the service growing too large and becoming a monolith. That’s a red flag to refactor into smaller, more focused microservices. Finally, I evaluate things like deployment independence, data ownership, and team ownership. If one part of the system changes frequently or is maintained by a different team, that’s a strong sign it should be its own microservice.”",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_019",
+      "question": "Q. Can you describe a project where you designed microservices architecture?",
+      "answer": " Answer: At Amdocs, I worked on a software-defined network platform consisting of 120+ microservices. I designed services using Spring Boot, ensuring scalability and security. I handled synchronous communication using CompletableFuture and asynchronous tasks with ExecutorService. For security, I implemented OAuth2 and JWT tokens. We deployed using Docker and Kubernetes, ensuring efficient orchestration and scalability.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_020",
+      "question": "Q. Let’s say one microservice needs data from another microservice. How do you handle inter-service communication, and how do you make sure it’s reliable and scalable?",
+      "answer": " “When one microservice needs data from another, I typically use REST-based communication with proper authentication and resilience mechanisms in place. For security, I use JWT tokens to authorize requests between services. This ensures only trusted services can talk to each other. Tokens are passed in the authorization header of the request. For reliability, I deploy the services on Kubernetes, which helps ensure high availability and automatic recovery if a service goes down. I also implement circuit breakers, retries, and timeouts—using tools like Resilience4j—to handle service failures gracefully. In terms of observability, I make sure all requests are logged and traceable using tools like Spring Cloud Sleuth and Zipkin or OpenTelemetry. And finally, for scalability, I enable horizontal scaling of stateless services, and use load balancers to distribute traffic. If needed, I can switch to asynchronous communication with messaging tools like Kafka or RabbitMQ, depending on the use case.” 2. How do you manage communication between microservices: synchronous vs asynchronous? Answer: At Amdocs, for synchronous communication, I used CompletableFuture in Java to coordinate parent-child service calls, ensuring all responses are received before proceeding. For asynchronous messaging, I implemented Kafka-based event-driven systems, allowing services to communicate without tight coupling, improving performance and resilience. 3. How have you implemented RESTful APIs securely? Answer: At CRA, I developed RESTful APIs using Spring Boot, secured with OAuth2 and JWT. I enforced HTTPS, validated all incoming requests, and applied input sanitization. Additionally, sensitive data was encrypted, and audit logs maintained, ensuring compliance with CRA’s security standards. 4. How did you handle API versioning and backward compatibility? Answer: At NCR, we used URI-based versioning (e.g., /api/v1/) to allow clients to continue using older versions while we introduced new ones. We communicated deprecation plans clearly to clients and maintained parallel versions until all transitions were complete. 5. How have you used Spring Boot’s features for building microservices? Answer: Throughout CRA and NCR projects, I used Spring Boot’s features like Spring Data JPA for database interactions, Spring Security for OAuth2, Spring Actuator for health checks, and Spring Cloud Config for externalized configuration management. This streamlined microservice development and maintenance. 6. Describe a challenging microservice integration you handled. Answer: At CRA, integrating with external banking APIs posed challenges due to differing data formats. I used Spring Boot with custom message converters to handle both JSON and XML. I implemented retry mechanisms and circuit breakers to ensure resilience. 7. Explain how you implemented exception handling in Spring Boot microservices. Answer: I used Spring Boot’s @ControllerAdvice and @ExceptionHandler to centralize exception handling. At NCR, we standardized error codes and responses, improving debugging and client communication. 8. How have you used Spring Security in your projects? Answer: At Bornio and CRA, I configured Spring Security to use OAuth2 with JWT for secure API access. I also implemented role-based access controls, ensuring different services and users had appropriate permissions. 9. How did you optimize performance in a microservice-based system? Answer: At NCR, we profiled microservices using JProfiler, optimized SQL queries, implemented caching with Redis, and reduced API response times by 40%. We also minimized network latency by colocating dependent services within the same Kubernetes cluster.\n\nLet me explain both concepts clearly and simply, especially how they apply to microservices performance optimization. 1️⃣ Profiling Microservices Using JProfiler & SQL Optimization What is Profiling? Profiling is like putting a microscope on your running application to see: •\tWhere it spends most of its time (hotspots). •\tMemory usage, CPU usage. •\tHow many database calls are being made. •\tThread activity. JProfiler is a tool specifically for Java applications that: •\tAttaches to your running microservice. •\tGives real-time insights (CPU, memory, SQL queries, etc.). Why Profile Microservices? When your microservices slow down: •\tCould be due to slow SQL queries. •\tCould be too many database calls per request. •\tOr unnecessary object creation, memory leaks. Profiling helps pinpoint the exact cause. How JProfiler Helps: Example Scenario: At NCR, I profiled a transaction microservice. JProfiler showed: •\tEach REST API request triggered multiple SQL queries (due to lazy loading, unnecessary joins). •\tSome queries took longer because of missing indexes. •\tCPU spikes during specific API calls. How We Optimized: Steps Taken: 1.\tIdentify Slow Queries: •\tJProfiler’s JDBC probe displayed all SQL queries & execution time. 2.\tReduce DB Calls: •\tReworked the code to batch-fetch related data instead of multiple separate queries. 3.\tIndexing: •\tAdded indexes to frequently queried columns. 4.\tConnection Pool Tuning: •\tAdjusted HikariCP settings after observing connection pool bottlenecks. Result: Reduced response time by 30-40%, improved scalability. 2️⃣ Co-locating Dependent Services in Same Kubernetes Cluster What Does Co-locating Mean? In microservices architecture: •\tSome services depend heavily on each other (e.g., OrderService → InventoryService → PaymentService). Co-locating means: ➡ ️ Deploying these dependent services together in the same Kubernetes cluster (same physical/virtual network space). Why Do This? 1.\tReduced Network Latency: •\tCommunication happens within a cluster (internal network), much faster than cross-cluster or over public internet. 2.\tImproved Reliability: •\tServices are tightly coupled, so having them failover/restart together ensures stability. 3.\tSimplified Service Discovery: •\tKubernetes DNS (internal) resolves service names easily (service-name.namespace.svc.cluster.local). Example: At NCR: •\tTransactionService depended on AuthService & NotificationService. •\tWe deployed all three in the same Kubernetes cluster namespace. •\tConfigured them to communicate internally via Kubernetes service names → Resulted in: •\tReduced latency by 25%. •\tFewer networking failures. Key Takeaway: •\tJProfiler → Spot bottlenecks like inefficient SQL queries, optimize DB interaction. •\tCo-located services → Place dependent services together to improve communication speed and reliability inside Kubernetes clusters. How do you secure REST APIs in Spring Boot? A: I use Spring Security with OAuth2 or JWT. For basic needs, I configure role-based access on endpoints using annotations like @PreAuthorize. For advanced cases, I integrate with identity providers and secure tokens using filters. I also enable HTTPS, sanitize input to prevent XSS/SQL injection, and handle CORS appropriately.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_021",
+      "question": "Q What testing strategies do you apply for microservices?",
+      "answer": " Answer: I implement unit tests using JUnit and Mockito, integration tests for service-to-service communication, and contract tests using Spring Cloud Contract. At ESDC, I also used the Citrus Integration framework for end-to-end testing.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_022",
+      "question": "Q How did you ensure high availability of microservices?",
+      "answer": " Answer: Using Kubernetes deployments with multiple replicas, readiness/liveness probes, and horizontal pod autoscaling at NCR ensured microservices remained available even under heavy load or node failures.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_023",
+      "question": "Q How do you manage API documentation in microservices?",
+      "answer": " Answer: I used Swagger (OpenAPI) with Spring Boot to generate API documentation automatically, ensuring teams and external clients could easily understand and integrate with our services.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_024",
+      "question": "Q: What is the purpose of @SpringBootApplication?",
+      "answer": " A: It combines @Configuration, @EnableAutoConfiguration, and @ComponentScan. It sets up Spring Boot's context and auto-configuration.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_025",
+      "question": "Q: What is the difference between @Component, @Service, and @Repository?",
+      "answer": " A: All are detected by component scan. @Component is generic, @Service is for business logic, and @Repository is for database access and enables exception translation.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_026",
+      "question": "Q: How does dependency injection work in Spring Boot?",
+      "answer": " A: It uses annotations like @Autowired or constructor injection. Spring resolves and injects the required beans at runtime.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_027",
+      "question": "Q: How do you handle configuration across environments?",
+      "answer": " A: Use application-profile.yml files, activate them with spring.profiles.active, and use @Value to inject config values.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_028",
+      "question": "Q: How do you secure a Spring Boot REST API?",
+      "answer": " A: Use Spring Security. For JWT, define a filter, configure the authentication manager, and apply the filter in the security configuration.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_029",
+      "question": "Q: How do you deploy a Spring Boot app on AWS?",
+      "answer": " A: Package it as a jar, copy it to EC2 using SCP, SSH into the instance, and run it with java -jar.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_030",
+      "question": "Q: What is GCP Cloud Run and why is it useful?",
+      "answer": " A: Cloud Run deploys containers in a fully managed environment. It scales to zero and is great for Microservices.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_031",
+      "question": "Q: How do you monitor Spring Boot in the cloud?",
+      "answer": " A: Use CloudWatch on AWS or Stackdriver on GCP. Add Spring Boot Actuator endpoints and forward logs using a log agent.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_032",
+      "question": "Q: What are IAM roles?",
+      "answer": " A: IAM roles define permissions for cloud resources. It's best practice to use least privilege.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_033",
+      "question": "Q: What is the difference between EC2 and Lambda?",
+      "answer": " A: EC2 is a virtual machine for long-running apps. Lambda is serverless and runs short tasks, scaling automatically.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_034",
+      "question": "Q: How do you manage service-to-service communication in a distributed architecture?",
+      "answer": " A: Use REST for synchronous communication, and messaging systems like Kafka or RabbitMQ for asynchronous. Include retries, circuit breakers, and observability for robust communication.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_035",
+      "question": "Q: How do you handle exception handling and logging in large-scale Spring applications?",
+      "answer": " A: Use @ControllerAdvice with @ExceptionHandler for centralized error handling. Log using SLF4J/Logback, and integrate with ELK or CloudWatch for observability. Q: Describe a scenario where you deployed a Spring Boot application to AWS or GCP. A: Build JAR, use Docker, deploy to EC2 or Cloud Run. Use S3/Cloud Storage for assets. Configure IAM roles, security groups, and use CI/CD for deployments.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_036",
+      "question": "Q: How do you optimize cloud performance and cost efficiency for client projects?",
+      "answer": " A: Use auto-scaling, right-size instances, serverless where possible. Monitor with CloudWatch or Stackdriver, use caching (Redis/Cloud CDN), and configure budgets and alerts.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_037",
+      "question": "Q: What is your experience with serverless architectures such as AWS Lambda or GCP Cloud Functions?",
+      "answer": " A: Built lightweight APIs or tasks using Lambda/Cloud Functions triggered by HTTP or Pub/Sub events. Optimized for cold starts and minimal dependencies.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_038",
+      "question": "Q: How do you design CI/CD pipelines for cloud-native applications?",
+      "answer": " A: Use GitHub Actions, Jenkins, or GitLab CI. Include build, test, code quality, security scans, and deployment stages using Docker, Terraform, or CloudFormation.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_039",
+      "question": "Q: How do you handle monitoring, logging, and alerting in cloud-based systems?",
+      "answer": " A: Use Prometheus/Grafana or Cloud-native tools like CloudWatch and GCP Monitoring. Set up log aggregation, dashboards, and alerts for uptime, latency, and errors.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_040",
+      "question": "Q: How do you manage state in large frontend applications using React or Angular?",
+      "answer": " A: Use Redux or Context API in React; use RxJS or NgRx in Angular. Modularize state, persist across sessions using localStorage or sessionStorage when needed.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_041",
+      "question": "Q: What strategies do you use to improve frontend performance and load times?",
+      "answer": " A: Lazy load modules, use code splitting, optimize assets, compress images, cache with service workers, and minimize third-party dependencies. Q: Describe how you integrate frontend and backend services in a secure and efficient way. A: Use REST/GraphQL APIs secured with JWT/OAuth2, implement CORS policies, handle versioning, and use response compression. Q: Describe a time when you led a full-stack development team across multiple time zones. A: Held daily syncs, used collaborative tools like Jira and Confluence, defined clear sprint goals, ensured code reviews, and fostered async communication culture.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_042",
+      "question": "Q: How do you ensure code quality and best practices across globally distributed teams?",
+      "answer": " A: Enforce coding standards, conduct regular code reviews, use static analysis tools, CI checks, and mentorship sessions to align on best practices.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_043",
+      "question": "Q: What approach do you follow to modernize legacy systems?",
+      "answer": " A: Assess monolith, extract business capabilities, move to microservices, containerize, deploy to cloud. Prioritize minimal disruption, create integration layers.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_044",
+      "question": "Q: How do you balance hands-on development with project leadership responsibilities?",
+      "answer": " A: Set aside focused coding blocks, delegate effectively, conduct code reviews, stay involved in architecture and unblock team members as needed.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_045",
+      "question": "Q: How do you communicate complex technical designs to non-technical stakeholders?",
+      "answer": " A: Use diagrams (e.g., C4 model), analogies, business impact focus, avoid jargon, and encourage Q&A to ensure clarity.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_046",
+      "question": "Q: What is your experience with ORM frameworks like Hibernate or TypeORM?",
+      "answer": " A: Used Hibernate with Spring Boot for JPA. Managed entity relationships, lazy/eager loading, caching, and wrote custom queries with Criteria API or JPQL.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_047",
+      "question": "Q: How do you design scalable data models for both SQL and NoSQL databases?",
+      "answer": " A: Normalize relational schemas up to 3NF for OLTP; denormalize for OLAP. For NoSQL, use document or wide-column design based on access patterns.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_048",
+      "question": "Q: How do you implement event-driven architecture using tools like Kafka or Google Pub/Sub?",
+      "answer": " A: Use producers/consumers, schema registry (Avro/JSON), durable topics, message retries, and dead-letter queues. Decouple services and scale independently.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_049",
+      "question": "Q  What is Spring Boot Actuator ?",
+      "answer": " “The Sensor inside your application.” Spring Boot Actuator is a library that exposes internal data and health information from your application via HTTP endpoints like: •\t/actuator/health → is the app healthy? •\t/actuator/metrics → exposes all available metrics •\t/actuator/prometheus → exposes metrics in a Prometheus-compatible format It gives you visibility into: •\tMemory usage •\tActive threads •\tRequest latency •\tNumber of HTTP calls •\tCustom metrics (if you want) ✅ Without Actuator, your app is a black box. With Actuator, it becomes observable.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_050",
+      "question": "Q. Idempotency() ?",
+      "answer": " 🔁 Idempotence means: No matter how many times you perform the same operation, the result stays the same. ✅ Example: Let’s say you have an API that deducts payment from a user: •\tIf a user accidentally sends the same request twice, and it’s not idempotent, they might get charged twice. That’s bad. •\tIf it’s idempotent, the system recognizes the duplicate and ensures only one charge happens. ✅ In Practice: You can ensure idempotency by: •\tUsing a unique transaction ID or request ID and storing it. •\tWhen a request comes in, check: “Have I already processed this ID?” •\tIf yes, return the same result without repeating the operation. •\tIf no, process it and store the result. It’s especially useful in: •\tPayment systems •\tInventory updates •\tOrder placements Basically, anywhere a duplicate action could cause damage. UI Angular overview. “At CRA, I developed responsive Angular applications using Angular 12+, TypeScript, and SCSS, integrating them with Spring Boot REST APIs. + wrote EJB adapter to support old application. \nThe backend services were Spring, secured with JWT, Angular’s HttpClient. 🔧 Angular 12+ Key Features (Interview Highlights) Components are used to build the user interface — what the user sees and interacts with. The selector is like the custom HTML tag name for your Angular component. Services are used to handle business logic or talk to the backend, like making HTTP calls to get data.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_051",
+      "question": "Q - “How do you use Angular 12 with Spring Boot?”",
+      "answer": " “I use Spring Boot to build the backend REST APIs that provide data. Then in Angular 12, I create a service that calls those APIs. The data returned is shown using components. Spring Boot handles the logic and Angular handles the UI. They talk over HTTP.” Perfect — here’s how you can explain the technical steps of using Angular 12 with Spring Boot in a simple and interview-friendly way: ✅ Simple Technical Steps to Integrate Angular 12 with Spring Boot 🔧 1. Create the Spring Boot Backend 💬 “I started by creating a Spring Boot project that exposes REST APIs.” Go to Select: Spring Web Java 11 or above Generate the project and import into IntelliJ Create a controller like: @RestController @RequestMapping(\"/api/users\") public class UserController { @GetMapping public List<String> getUsers() { return List.of(\"Alice\", \"Bob\", \"Charlie\"); } } 🌐 2. Create the Angular 12+ Frontend 💬 “Then I created the Angular project to call the backend.” npm install -g @angular/cli ng new my-app --routing --style=scss cd my-app ng serve 📡 3. Make Angular Call Spring Boot API 💬 “I created a service in Angular to call the Spring Boot API.” ng generate service user user.service.ts @Injectable({ providedIn: 'root' }) export class UserService { private apiUrl = 'http://localhost:8080/api/users'; constructor(private http: HttpClient) {} getUsers(): Observable<string[]> { return this.http.get<string[]>(this.apiUrl); } } 🎨 4. Show Data Using a Component 💬 “Then I created a component to show the data from the API.” ng generate component user-list user-list.component.ts ngOnInit() { this.userService.getUsers().subscribe(data => this.users = data); } 🔄 5. Handle CORS (Cross-Origin) in Spring Boot 💬 “To allow Angular to talk to Spring Boot, I added a CORS config.” @Bean public WebMvcConfigurer corsConfigurer() { return registry -> registry.addMapping(\"/**\") .allowedOrigins(\"http://localhost:4200\"); } 🚀 6. Build Angular and Serve with Spring Boot (Optional) 💬 “If I want to bundle Angular inside Spring Boot, I build Angular and place it in the static folder.” ng build --prod Copy files from: dist/my-app/ To: backend/src/main/resources/static/ 🧠 What to Say in the Interview: “I created a Spring Boot backend to provide REST APIs and an Angular 12 frontend to consume those APIs. I used HttpClient in Angular to fetch data from Spring Boot and displayed it using components. To connect the two, I handled CORS in Spring Boot. I also optionally built and served the Angular app directly from Spring Boot’s static folder.” Would you like this in audio format to practice? Devops : CI/CD, Observability, Kubernetes, Helm",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_052",
+      "question": "Q. What is the circuit breaker() pattern in microservices ?",
+      "answer": " In microservices: •\tA circuit breaker is used to prevent repeated calls to a failing service. •\tIf a service goes down or becomes very slow, the circuit breaker opens the circuit and temporarily stops sending requests to it. •\tThis helps your system avoid wasting resources or crashing from too many failed calls. •\tLibraries like Resilience4j or Hystrix are commonly used for this in Spring Boot.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_053",
+      "question": "Q. What is HPA in kubernetes?",
+      "answer": " •\tHPA is a Kubernetes feature that automatically adds or removes pods based on metrics like CPU or memory usage. •\tIt helps your microservices scale automatically under load. •\tExample: if your backend service is under heavy traffic, HPA might spin up 3 or 4 extra pods to balance the load. •\tHPA is not a load balancer itself, but it works with a Kubernetes Service, which usually handles the load balancing across the pods. Q : What is Prometheus “The Data Collector.” Prometheus is a time-series database and scraper. It’s configured to periodically pull (scrape) metrics from your application at /actuator/prometheus. What Prometheus does: •\tCollects metrics over time (e.g., CPU usage every 15s) •\tStores those metrics •\tLets you write queries using PromQL (Prometheus Query Language) 📥 Prometheus doesn’t need your app to “send” anything. It just pulls data from Actuator endpoints.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_054",
+      "question": "Q. What is Grafana?",
+      "answer": " “The Dashboard that shows the story.” Grafana is a visual dashboarding tool. It connects to Prometheus as a data source, reads all your app’s metrics, and visualizes them in real time. You can: •\tImport pre-made dashboards (like Spring Boot JVM dashboard) •\tCreate custom charts (CPU, memory, DB calls) •\tSet alerts on thresholds (e.g., CPU > 80%) ✅ It’s what DevOps engineers or SREs open first when something goes wrong. 🧠 Real-World Analogy: 🔗 How They Connect: Spring Boot App (with Actuator) ↓ exposes metrics at /actuator/prometheus ↓ Prometheus scrapes every 15s ↓ Grafana reads data from Prometheus ↓ Dashboards + Alerts + Graphs Would you like to now: •\tSet up Actuator and expose metrics? •\tInstall Prometheus & Grafana into EKS? •\tOr see a full visual example of a Spring Boot metric on Grafana?",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_055",
+      "question": "Q 🚀 What is GitHub Actions?",
+      "answer": " GitHub Actions is a CI/CD (Continuous Integration / Continuous Deployment) tool built directly into GitHub. It lets you automate tasks like: •\tBuilding and testing your code •\tRunning linters or security checks •\tBuilding Docker images •\tPushing images to AWS ECR •\tDeploying to Kubernetes (like EKS) All of this happens automatically when something happens in your repo — like a code push or a pull request. 📦 Think of GitHub Actions as: “An automation engine that reacts to GitHub events like git push, and runs your DevOps workflow in the cloud.” 🔁 How It Works You write a workflow file in .github/workflows/ using YAML syntax. ✍️ Example: name: Build and Deploy Spring App on: push: branches: [main] jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v3 - name: Set up Java uses: actions/setup-java@v3 with: java-version: '17' - name: Build with Maven run: mvn clean package 🛠️ This example says: “Whenever someone pushes to the main branch, build the app using Maven on a GitHub-hosted Ubuntu machine.” 🧩 What You Can Do with It 🔐 Works Great with AWS You can: •\tStore your AWS credentials securely in GitHub Secrets •\tUse Actions like •\tPush directly to ECR, and deploy to EKS 📊 TL;DR Summary Example of Github CI/CD workflow file that: •\tBuilds your Spring Boot JAR •\tBuilds and pushes Docker image to ECR •\tDeploys the app to EKS using Helm? That way you can just copy and run it in your GitHub repo.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_056",
+      "question": "Q. How have you deployed microservices on AWS or GCP?",
+      "answer": " Answer: At Bornio, I deployed services on AWS using ECS, S3, Lambda, and CloudFormation. At NCR, I containerized services with Docker and deployed to Google Kubernetes Engine (GKE), using Helm charts for orchestration.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_057",
+      "question": "Q 🧱 What is Kubernetes?",
+      "answer": " Kubernetes is a platform that lets you deploy, manage, and scale your containerized applications — like the ones you build using Docker. It does the orchestration part: •\tSpins up containers (called pods) •\tRestarts them if they crash •\tBalances load across them •\tScales them up or down You tell Kubernetes what you want using YAML files: for deployments, services, volumes, etc. 🔧 Think of Kubernetes as the engine that runs your application in the cloud.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_058",
+      "question": "Q 📦 What is Helm then?",
+      "answer": " Helm is like a package manager for Kubernetes. Instead of writing big repetitive YAML files yourself, you use Helm charts. A Helm chart is: •\tA template that generates Kubernetes YAMLs dynamically •\tIt takes values (like image names, port numbers, replicas) •\tIt renders and applies them to Kubernetes It makes deployments: •\tEasier •\tReusable •\tUpgradeable •\tParameterized 🔧 Think of Helm as the DevOps assistant that organizes your Kubernetes configs and helps you install or upgrade your app easily. Q 🔁 How They Work Together Let’s say you have an app with: •\tA frontend (React) •\tA backend (Spring Boot) Without Helm: You write 5+ separate YAML files (deployment, service, configmap, etc.) and apply them one by one using: kubectl apply -f backend-deployment.yaml kubectl apply -f backend-service.yaml ... With Helm: You put everything in one Helm chart and just do: Bash ~helm install my-app ./helm 💡 Helm saves you from: •\tRepeating YAML •\tCopy-pasting configs for each environment •\tForgetting to update some values",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_059",
+      "question": "Q. How did you implement CI/CD pipelines?",
+      "answer": " Answer: At CRA and NCR, I configured Jenkins pipelines to automate build, test, and deployment processes. I integrated static code analysis (SonarQube), unit tests, Docker builds, and Kubernetes deployments with rollback strategies.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_060",
+      "question": "Q. How do you manage secrets in cloud deployments?",
+      "answer": " Answer: I’ve used AWS Secrets Manager at Bornio and Kubernetes Secrets at NCR to store database credentials, API keys, and sensitive configuration, integrating them securely into deployments. Q  Explain your experience with Docker. Answer: I’ve containerized Spring Boot applications at NCR, Ford,  and Bornio using Docker. I wrote optimized Dockerfiles, reduced image sizes, and configured multi-stage builds to improve deployment efficiency.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_061",
+      "question": "Q How did you monitor microservices in production?",
+      "answer": " Answer: I used Spring Boot Actuator with Prometheus for metrics, Grafana for dashboards, and configured alerts in CloudWatch (AWS) and Stackdriver (GCP) for proactive monitoring.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_062",
+      "question": "Q How have you handled log aggregation in microservices?",
+      "answer": " Answer: At NCR, I integrated microservices with ELK stack (Elasticsearch, Logstash, Kibana), enabling centralized log collection, easy debugging, and performance analysis. Q. Describe how you optimized infrastructure cost in the cloud. Answer: At Bornio, I used AWS auto-scaling groups and spot instances for non-critical workloads. I also set up CloudWatch billing alerts and right-sized instances, reducing monthly costs by 25%.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_063",
+      "question": "Q. How did you manage infrastructure as code?",
+      "answer": " Answer: At Bornio, I used AWS CloudFormation and AWS CDK to define and provision cloud resources, ensuring version control and repeatability.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_064",
+      "question": "Q. How do you handle rolling deployments and rollback strategies?",
+      "answer": " Answer: At NCR, I configured Kubernetes rolling updates with health checks. Jenkins pipelines included automated rollback steps in case of deployment failures. System Design What Is System Design?\nSystem design interviews assess your ability to design scalable, maintainable, and efficient software systems. It's how you plan the architecture of big software so that it: - Handles lots of users - Works fast - Doesn't crash Key Concepts with Real-Life Examples - Server: Does the work (e.g., Chef cooking) - Database: Stores data (e.g., Bookshelf) - Cache: Quick-access copy (e.g., Snacks on the table) - Queue: Wait line for tasks (e.g., Drive-thru orders) - Load Balancer: Distributes traffic (e.g., Front desk assigns counters) - API: Entry door for apps (e.g., Reception desk) - Auth: Security check (e.g., Ticket gate) - Client: User's app/browser (e.g., Customer at counter) System Design Process (Interview or Real-Life) 1. Understand the Requirements - What should it do? Chat? Store photos? 2. Draw High-Level Components - App -> API -> Services -> DB -> Cache 3. Choose Storage (DB) - SQL for relationships (users, orders) - NoSQL for scale (messages, posts) 4. Scale It Up - Add Load Balancers, Caches (Redis), Queues (Kafka) 5. Handle Failures - Backups, Retry logic, Replication Popular System Design Interview Questions - Design WhatsApp: Real-time, async messaging - Design Twitter: Feed generation at scale - Design Uber: Location, tracking, matching - Design YouTube: Media streaming & CDN- Design Dropbox: File sync, versioning 🧠 2. Conceptual / Theoretical Questions These evaluate your grasp on key architecture concepts: 🔍 3. Follow-Up Deep Dives (Interviewers love these) These come after your initial design and test your ability to iterate and handle edge cases. What happens when latency spikes in your API? How will you handle data loss in your service? Can your service support multi-region deployment? What happens if the primary database fails? How would you migrate users to your system with zero downtime? How do you monitor and observe your system in production? What are the trade-offs between consistency and availability in your design? 🧰 Topics You Should Know to Prepare Well Would you like a mock system design interview walkthrough (e.g., design Twitter, step-by-step), or notes/templates you can reuse for interviews? Databases, Security, Troubleshooting, Leadership",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_065",
+      "question": "Q How have you optimized SQL database performance in your projects?",
+      "answer": " Answer: At CRA, I analyzed slow queries using execution plans and added appropriate indexes. I refactored complex joins, reduced unnecessary data fetches, and optimized stored procedures, improving transaction response time by over 30%.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_066",
+      "question": "Q. Have you worked with NoSQL databases?",
+      "answer": " Answer: Yes, I’ve used MongoDB in Amdocs for storing unstructured data. I ensured proper document schema design, indexing strategies, and partitioning to handle scalability and performance needs. Q. Describe how you implemented OAuth2 and JWT security. Answer: At CRA and Bornio, I used Spring Security with OAuth2 authorization servers. JWT tokens were signed and validated at each service boundary. I also implemented token expiration and refresh mechanisms, ensuring secure, stateless authentication.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_067",
+      "question": "Q. How have you handled sensitive data compliance (HIPAA/GDPR)?",
+      "answer": " Answer: At Bornio, dealing with healthcare data, I implemented data anonymization using ARX Data Masking, encrypted data in transit and at rest, and ensured audit logging. Regular security reviews ensured HIPAA/GDPR compliance. Q. Describe a production issue you resolved. Answer: At CRA, we faced intermittent failures in financial transactions. After analyzing logs and database traces, I identified connection pool exhaustion and optimized pool configurations, increasing availability and reducing failures by 40%. Multi threading issue and resolved by writing thread safe code at webservice level.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_068",
+      "question": "Q. How do you approach debugging complex distributed systems?",
+      "answer": " Answer: I rely on centralized logging (ELK stack), correlation IDs for tracing requests, and Spring Boot Actuator metrics. At NCR, I combined logs, metrics, and traces (using tools like Prometheus) to pinpoint and resolve issues quickly.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_069",
+      "question": "Q. How have you handled performance testing of microservices?",
+      "answer": " Answer: At NCR, I used JMeter and Gatling to simulate load on microservices. I monitored system metrics, identified bottlenecks, and optimized code, database queries, and infrastructure configurations, ensuring system stability under peak load.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_070",
+      "question": "Q. How do you approach service scalability in cloud environments?",
+      "answer": " Answer: I configure auto-scaling groups (AWS) and Kubernetes Horizontal Pod Autoscaler (GCP/NCR). Services are stateless, allowing seamless scaling. I also monitor key metrics to adjust thresholds proactively.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_071",
+      "question": "Q. How have you implemented caching strategies?",
+      "answer": " Answer: At NCR, I used Redis as a distributed cache for frequently accessed data. In Spring Boot, I integrated caching with annotations and ensured cache invalidation policies to maintain consistency. Q. Describe how you implemented business rules in a project. Answer: At ESDC, I implemented business rules using Drools. I externalized rules from application code, improving maintainability. I also developed utilities for rule calculations and ensured proper unit and integration testing.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_072",
+      "question": "Q. How do you stay updated with evolving technologies?",
+      "answer": " Answer: I follow technology blogs, participate in developer forums, attend webinars, and engage in internal knowledge-sharing sessions. I’ve also earned certifications like CSP, CSM, and CSPO to enhance leadership skills. I am also preparing for the AWS cloud certifications. Advance Spring Boot Questions",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_073",
+      "question": "Q. How have you handled service discovery in microservices?",
+      "answer": " Answer: At Amdocs, I used Netflix Eureka for service discovery. Combined with Spring Cloud, it allowed microservices to locate each other dynamically without hardcoded URLs, ensuring scalability and failover support.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_074",
+      "question": "Q. How do you handle distributed transactions in microservices?",
+      "answer": " Answer: At CRA, we avoided distributed transactions to reduce complexity. Instead, I used eventual consistency principles and implemented idempotent operations with unique transaction IDs to ensure data integrity.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_075",
+      "question": "Q How did you handle Kubernetes orchestration challenges?",
+      "answer": " Answer: At NCR, configuring Helm charts simplified Kubernetes deployments. I used resource limits, configured pod autoscalers, and monitored cluster health with Prometheus + Grafana, ensuring optimal performance.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_076",
+      "question": "Q How do you manage database schema changes in microservices?",
+      "answer": " Answer: I’ve used Liquibase and Flyway to automate schema migrations. At NCR, database changes were version-controlled and integrated into the CI/CD pipeline to ensure consistent deployments.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_077",
+      "question": "Q. How did you ensure data consistency in microservices?",
+      "answer": " Answer: At CRA, I implemented idempotent APIs, used unique transaction IDs, and applied optimistic locking to prevent double processing. For cross-service consistency, we used event sourcing and retry mechanisms.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_078",
+      "question": "Q. How do you handle database connection pooling in Spring Boot?",
+      "answer": " Answer: I configured HikariCP in Spring Boot for connection pooling, fine-tuning properties like max pool size and timeout based on database capacity, ensuring efficient resource utilization and reduced latency.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_079",
+      "question": "Q. How do you ensure observability in microservices?",
+      "answer": " Answer: I integrate Spring Boot Actuator, Prometheus for metrics, centralized logging, and distributed tracing using OpenTracing. This holistic observability setup helps detect issues early and debug effectively.",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_080",
+      "question": "Q. How do you approach API gateway design in microservices?",
+      "answer": " Answer: I’ve implemented API Gateway using Spring Cloud Gateway and AWS API Gateway. It handles routing, rate limiting, authentication (JWT validation), and load balancing across microservices, simplifying client integration. TODO - get the sample project. Architecture Interview Questions",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_081",
+      "question": "Question: In the context of Kubernetes and microservices, how would you approach managing configuration and secrets across different environments? What tools and best practices would you use to ensure both security and consistency?",
+      "answer": " 1️⃣ Client / Project AI-Gent (AWS, 2025) — SaaS automation platform built on AWS with containerized microservices (ECS/EKS) and multi-environment CI/CD pipelines. 2️⃣ Rehearsal Flow (Quick Recall) → Project goal: Multi-env microservices (dev/stage/prod) needed consistent config + secure secrets.\n → Why: Avoid drift & leaks while enabling fast, isolated deployments.\n → How: Externalized config via SSM Parameter Store + Secrets Manager; Helm values per environment; Terraform state separation.\n → Tools: AWS Secrets Manager, Parameter Store, ConfigMap, sealed-secrets, GitHub Actions OIDC.\n → Result: 100% secret isolation, zero plaintext leaks, predictable rollout across all clusters. 3️⃣ Detailed Breakdown ⚙️ WHAT (Goal / Problem) Needed a unified, secure, and automated approach for managing configurations and secrets across EKS microservices deployed in dev, stage, and prod environments. 💡 WHY (Reason / Impact) Prevent configuration drift between environments. Eliminate plaintext secrets in YAMLs or pipelines. Enable CI/CD pipelines to inject configs dynamically at deploy time. Ensure auditability and compliance (SOC2 readiness). 🔧 HOW (Implementation / Actions) Separation of Concerns Externalized environment variables from code; used Helm charts with values files per environment. Enforced config naming conventions: service.env.key=value. Secrets Management Used AWS Secrets Manager for database credentials, API keys, and tokens. Integrated with EKS via IAM roles for service accounts (IRSA) — no hardcoded credentials. For local dev, fallback to Parameter Store (SSM) using least-privilege IAM access. GitOps & Encryption Encrypted ConfigMap/Secret manifests using Sealed Secrets (bitnami) before committing to Git. Applied Terraform modules to automate secret creation and versioning. Implemented KMS-backed encryption and rotated keys every 90 days. CI/CD Integration GitHub Actions pipelines used OIDC federation to assume roles and fetch secrets directly from AWS — no static keys. Helm chart values injected dynamically using pipeline variables per environment. Consistency & Validation Terraform workspaces isolated by environment. Validation via pre-deployment smoke tests to verify config sync (e.g., checksum of expected values). ⏱️ WHEN (Timeline / Context) Implemented during AI-Gent Phase-2 (Q2 2025) while scaling multi-tenant services on AWS EKS and automating cross-region deployments. 🏁 RESULT (Outcome / Metrics) Zero config drift across 3 environments over 6 months. Achieved full secrets traceability and IAM isolation. Deployment consistency improved by ~40%, reducing rollback incidents. Passed internal security audit with zero secret exposure. 💬 30-Second Spoken Version “In the AI-Gent project, we had EKS microservices running across dev, stage, and prod, and the key challenge was consistent configuration without exposing secrets.\n We externalized configs using Helm + Parameter Store, and all sensitive values went into AWS Secrets Manager, accessed via IRSA roles.\n GitHub Actions used OIDC to fetch secrets dynamically, so no plaintext creds were stored.\n This setup ensured full environment parity and eliminated configuration drift — improving deployment reliability by around 40%.” ⚡ Rehearsal Summary Flow → AI-Gent (AWS, 2025)\n → Need: Consistent multi-env config & secret security\n → Tools: AWS Secrets Manager + SSM + Sealed Secrets + Helm\n → Methods: IRSA, Terraform workspaces, OIDC pipelines\n → Results: Zero drift, secure isolation, smoother deployments ✅",
+      "code": null,
+      "diagram": null,
+      "references": []
+    },
+    {
+      "id": "JAVA_082",
+      "question": "Question: When designing a microservices architecture, how would you handle inter-service communication? What patterns and technologies would you use to ensure efficient, reliable, and secure communication between services?",
+      "answer": " 1️⃣ Client / Project AI-Gent (AWS, 2025) — AI-powered automation platform built as a distributed SaaS system on AWS using EKS, API Gateway, SQS, and Lambda-based workers. 2️⃣ Rehearsal Flow (Quick Recall) → Project: AI-Gent microservices needed both sync & async inter-service communication.\n → Why: Reduce coupling, improve reliability, and scale independently.\n → How: REST APIs for sync calls via API Gateway + Service Mesh (Istio) for observability.\n → Async via SQS and EventBridge for decoupled event-driven workflows.\n → Secured with JWT + IAM roles, retried with DLQs and exponential backoff.\n → Result: 40% latency reduction, 99.9% reliability, and fault-tolerant distributed design. 3️⃣ Detailed Breakdown ⚙️ WHAT (Goal / Problem) Enable efficient, reliable, and secure communication between 20+ distributed microservices deployed across multiple AWS environments. 💡 WHY (Reason / Impact) Direct service coupling caused deployment bottlenecks. Synchronous REST calls were overloading APIs during peak traffic. Needed event-driven flow for automation pipelines and reduced latency. Required observability, retries, and fault isolation across services. 🔧 HOW (Implementation / Actions) Dual Communication Strategy Used API Gateway + REST for synchronous calls (user-facing flows). Implemented SQS + SNS + EventBridge for asynchronous, event-driven communication. Introduced CQRS pattern — separating read/write operations to scale independently. Resiliency & Fault Tolerance Wrapped REST clients with Resilience4J (circuit breaker, retry, fallback). Configured DLQs (Dead Letter Queues) in SQS for failed message handling. Enabled at-least-once delivery and idempotency keys in consumers. Security Used JWT tokens for service-to-service authentication. Enforced mutual TLS (mTLS) between internal EKS pods via Istio service mesh. Implemented least privilege IAM roles (IRSA) for AWS resource access. Performance & Observability Used Service Mesh telemetry (Istio + CloudWatch) for tracing inter-service latency. Deployed distributed tracing with OpenTelemetry + Grafana Tempo. Tuned connection pooling and async non-blocking I/O for low latency (Netty under Spring WebFlux). Deployment & Governance Defined service discovery and routing rules in Kubernetes ingress + Istio VirtualService. Standardized APIs via OpenAPI 3.0 specs; validated contracts through CI/CD. ⏱️ WHEN (Timeline / Context) Implemented in AI-Gent Phase-2 (mid-2025) during the transition to multi-region AWS deployment and scaling of event-driven pipelines. 🏁 RESULT (Outcome / Metrics) Reduced API latency by ~40% after moving async tasks to SQS/EventBridge. Achieved 99.9% reliability through retries, DLQs, and circuit breakers. Improved fault isolation — one service failure no longer cascaded. Secured inter-service traffic end-to-end via JWT + mTLS. 💬 30-Second Spoken Version “In the AI-Gent project, we used a hybrid approach for inter-service communication — REST for synchronous user-facing flows and SQS/EventBridge for async background tasks.\n Resilience4J handled retries and circuit breakers, and Istio provided mTLS and observability across pods.\n This mix gave us both performance and reliability — we cut latency by 40% and achieved 99.9% uptime across all services.” ⚡ Rehearsal Summary Flow → AI-Gent (AWS, 2025)\n → Challenge: Reliable & secure inter-service communication\n → Patterns: REST + Event-driven (SQS/EventBridge)\n → Tools: Istio, JWT, Resilience4J, DLQ, OpenTelemetry\n → Result: 40% latency cut, 99.9% reliability, strong security ✅ Explain - Domain-Driven Design, or DDD Of course! Domain-Driven Design, or DDD, is an approach to software development that focuses on modeling the software based on the real-world domain it serves. The main idea is to align the software design with the business domain, ensuring that the code reflects the business concepts and logic. Example: Let’s say you’re building a SaaS platform for managing research grants. In DDD, you would start by collaborating closely with domain experts to understand the core concepts, like \"Grant,\" \"Applicant,\" \"Review,\" and \"Approval Process.\" You would then break the domain into bounded contexts. For instance, the \"Applicant Management\" context would handle everything related to applicants and their submissions, while the \"Grant Management\" context would focus on the grants themselves and their lifecycle. Within each bounded context, you’d define entities (like an \"Applicant\" or a \"Grant\"), value objects (like an \"Address\" or \"Funding Amount\"), and aggregates (like a \"Grant Application\" that groups related entities). You would also use domain events to handle communication between these contexts. For example, when an applicant submits a grant application, a domain event could notify the \"Grant Management\" context to start the review process. In essence, DDD helps ensure that the software’s structure and language align with the business goals, making it easier to maintain and scale over time. If you’d like more detailed examples or have any other questions, just let me know!",
+      "code": null,
+      "diagram": null,
+      "references": []
+    }
+  ]
+}
